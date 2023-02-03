@@ -1,0 +1,27 @@
+<nav class="nav hide-top">
+    <ul>
+        <a href="#gallery">GALLERY</a>
+        <a href="#style">STYLE</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+    </ul>
+</nav>
+
+<script type="text/javascript">    
+    var prevScrollposY = window.scrollY;
+    window.addEventListener(
+			'scroll', 
+			() => {
+    		const nav = document.getElementsByTagName("nav")[0]
+      	var scrollPosY = window.scrollY;
+      	if(scrollPosY <= nav.style.top) {
+      	  return nav.style.top = 0;
+      	}
+      	if (prevScrollposY >= scrollPosY)
+      	  nav.style.top = 0;
+      	else
+      	  nav.style.top = -nav.clientHeight + 'px';
+      	prevScrollposY = scrollPosY;
+      }
+    )
+</script>

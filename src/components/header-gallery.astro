@@ -1,20 +1,28 @@
+<div id="gallery" class="gallery-root-wrapper">
+    <div class="gallery-pagination">
+        <div class="gallery-pagination-icon gallery-pagination-icon-left">
+          <span class="material-icons gallery-pagination-icon-symbol"> chevron_left </span>
+        </div>
+        <div class="gallery-pagination-icon gallery-pagination-icon-right">
+            <span class="material-icons gallery-pagination-icon-symbol"> chevron_right </span>
+        </div>
+    </div>
+    <div class="gallery-container">
+        <div class="gallery-wrapper">
+            <div class="gallery-item-wrapper hide-right"><div class="gallery-item" style="background-image: url('img/2.jpg');"></div></div>
+            <div class="gallery-item-wrapper hide-right"><div class="gallery-item" style="background-image: url('img/3.jpg');"></div></div>
+            <div class="gallery-item-wrapper hide-right"><div class="gallery-item" style="background-image: url('img/4.jpg');"></div></div>
+            <div class="gallery-item-wrapper"><div class="gallery-item" style="background-image: url('img/5.png');"></div></div>
+            <div class="gallery-item-wrapper"><div class="gallery-item" style="background-image: url('img/2.jpg');"></div></div>
+            <div class="gallery-item-wrapper"><div class="gallery-item" style="background-image: url('img/3.jpg');"></div></div>
+            <div class="gallery-item-wrapper"><div class="gallery-item" style="background-image: url('img/4.jpg');"></div></div>
+            <div class="gallery-item-wrapper"><div class="gallery-item" style="background-image: url('img/5.png');"></div></div>
+        </div>
+    </div>
+</div>
 
-var prevScrollposY = window.scrollY;
-window.onscroll = function() {  
-  const nav = document.getElementsByTagName("nav")[0]
-  var scrollPosY = window.scrollY;
-  if(scrollPosY <= nav.style.top) {
-    return nav.style.top = 0;
-  }
-  if (prevScrollposY >= scrollPosY)
-    nav.style.top = 0;
-  else
-    nav.style.top = -nav.clientHeight + 'px';
-  prevScrollposY = scrollPosY;
-};
-
-
-// Recalculate 'transform' base on 'curGalleryPage'
+<script type="text/javascript">
+    // Recalculate 'transform' base on 'curGalleryPage'
 function updateGallerySliderPos() {
   const items = Array.from(document.getElementsByClassName('gallery-item-wrapper'))
   const galleryWrap = document.getElementsByClassName('gallery-wrapper')[0]
@@ -68,49 +76,10 @@ window.onresize = function() {
   document.getElementsByClassName('gallery-wrapper')[0].style.transition = "transform 0.3s"
 }
 
-
-
-
-function isInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return rect.top < window.innerHeight && Math.abs(rect.top) < window.innerHeight
-}
-
-const parallaxImgs = document.getElementsByClassName('section-img')
-const parallaxSpeed = 0.25
-window.addEventListener('scroll', () => {
-  let { scrollY } = window;
-  [...parallaxImgs].forEach(img => {
-    if(isInViewport(img)) {
-      img.style.transform = `translateY(${img.getBoundingClientRect().top * Math.sign(scrollY) * parallaxSpeed - 50}px)`
-    }    
-  });
-});
-
-
-/*
- * Animations
- */
-const observer = new IntersectionObserver((elements) => {
-  elements.forEach(el => {
-    if(el.isIntersecting)
-      el.target.classList.add('show')
-  });
-})
-
-const animatedElements = [
-  ...document.querySelectorAll(".hide-top"),
-  ...document.querySelectorAll(".hide-left"),
-  ...document.querySelectorAll(".hide-right"),
-  ...document.querySelectorAll(".hide-opacity")
-];
-animatedElements
-animatedElements.forEach(el => observer.observe(el));
-
 /*
  * Call on init
  */
-adjustGallerySize()
+ adjustGallerySize()
 
 // Remove gallery resize transition that breaks on window resize after transition is initialy shown
 setTimeout(() => {
@@ -119,3 +88,5 @@ setTimeout(() => {
     el.classList.remove("hide-right", "show")
   });
 }, 1500);
+
+</script>
