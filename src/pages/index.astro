@@ -1,16 +1,252 @@
 ---
-
 ---
 
-<html lang="en">
+
+
+
+
+<!DOCTYPE html>
+<html lang="en-US">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<link rel="stylesheet" href="style.css">
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>KARSON SPYKES tattoo studio</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		
+		<nav class="nav hide-top">
+			<ul>
+				<a href="#gallery">GALLERY</a>
+				<a href="#style">STYLE</a>
+				<a href="#about">ABOUT</a>
+				<a href="#contact">CONTACT</a>
+			</ul>
+		</nav>
+	
+		<header>
+			<div class="header-container hide-top">
+				<div class="header-item">
+					<img src="img/scorpion-logo-white.png" style="transform: scaleX(-1);">
+				</div>
+				<div class="header-item header-item-text-container">
+					<div class="header-container-title">
+						KARSON SPYKES
+					</div>
+					<div class="header-container-divider"></div>
+					<div class="header-container-subtitle">
+						TATTOO STUDIO
+					</div>
+				</div>
+				<div class="header-item">
+					<img src="img/scorpion-logo-white.png">
+				</div>
+			</div>		
+	
+			<div id="gallery" class="gallery-root-wrapper">
+				<div class="gallery-pagination">
+					<div class="gallery-pagination-icon gallery-pagination-icon-left">
+			  <span class="material-icons gallery-pagination-icon-symbol"> chevron_left </span>
+					</div>
+					<div class="gallery-pagination-icon gallery-pagination-icon-right">
+						<span class="material-icons gallery-pagination-icon-symbol"> chevron_right </span>
+					</div>
+				</div>
+				<div class="gallery-container">
+				<div class="gallery-wrapper">
+					<div class="gallery-item-wrapper hide-right"><div class="gallery-item" style="background-image: url('img/2.jpg');"></div></div>
+					<div class="gallery-item-wrapper hide-right"><div class="gallery-item" style="background-image: url('img/3.jpg');"></div></div>
+					<div class="gallery-item-wrapper hide-right"><div class="gallery-item" style="background-image: url('img/4.jpg');"></div></div>
+					<div class="gallery-item-wrapper"><div class="gallery-item" style="background-image: url('img/5.png');"></div></div>
+					<div class="gallery-item-wrapper"><div class="gallery-item" style="background-image: url('img/2.jpg');"></div></div>
+					<div class="gallery-item-wrapper"><div class="gallery-item" style="background-image: url('img/3.jpg');"></div></div>
+					<div class="gallery-item-wrapper"><div class="gallery-item" style="background-image: url('img/4.jpg');"></div></div>
+					<div class="gallery-item-wrapper"><div class="gallery-item" style="background-image: url('img/5.png');"></div></div>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	
+	
+		<section id="style" class="p-16 bg-black"> 
+			<div class="section-content col-white">
+				<div class="section-text-wrapper hide-left" id="style-text-wrapper">
+					<p class="">The Ultimate Form of Fan Devotion</p>
+					<p class="">KARSON SPYKES カーソン</p>
+					<p class="">KARSON SPYKES is a good boy who loves one piece and gommu gommu gummy boy. These tattoos feature characters and designs from manga, anime, and games, are aimed at otaku artists! This is a form of expression that mirrors the passions and interests of contemporary otaku! This generation’s heroes are not from the suikouden, but from EVangelion, One Piece, and Final Fantasy. These are the modern Japanese myths that offer courage, inspiration, and ideals, making them perfect for tattoo subjects. </p>
+				</div>
+				<div class="section-img-wrapper hide-right">
+					<img class="section-img" src="img/ace.png"/>
+				</div>
+			</div>
+		</section>
+	
+		<section id="about" class="p-16 bg-white">
+			<div class="section-content col-black">
+				<div class="section-img-wrapper hide-left">
+					<img class="section-img" src="img/ace.png"/>
+				</div>
+				<div class="section-text-wrapper hide-right" id="about-text-wrapper">
+					<p class="">About KARSON SPYKES</p>
+					<p class="">KARSON SPYKES is a good boy who loves one piece and gommu gommu gummy boy. <br><br>These tattoos feature characters and designs from manga, anime, and games, are aimed at otaku artists! This is a form of expression that mirrors the passions and interests of contemporary otaku! This generation’s heroes are not from the suikouden, but from EVangelion, One Piece, and Final Fantasy. <br><br> These are the modern Japanese myths that offer courage, inspiration, and ideals, making them perfect for tattoo subjects. These tattoos feature characters and designs from manga, anime, and games, are aimed at otaku artists! This is a form of expression that mirrors the passions and interests of contemporary otaku! This generation’s heroes are not from the suikouden, but from EVangelion, One Piece, and Final Fantasy. </p>
+				</div>
+			</div>
+		</section>
+	
+		<section id="contact" class="p-16 bg-black p-bot-64">
+			<div class="section-content justify-content-center about-title-wrapper col-white hide-opacity">
+				<p class="about-title">CONTACT</p>
+			</div>
+			<div class="social-media-container section-content justify-content-center hide-opacity">
+				<a href="https://instagram.com/kspykes_ttt?igshid=ZDdkNTZiNTM=" target="_blank" class="social-media-a fa-brands fa-instagram"></a>
+				<a href="https://www.tiktok.com/@kspykes_ttt?_t=8ZWU1OiBj2j&_r=1" target="_blank" class="social-media-a fa-brands fa-tiktok"></a>
+			</div>
+			<form action="https://formsubmit.co/drunkbearzz@gmail.com" method="POST" class="section-content contact-form hide-opacity">
+				<input type="hidden" name="_subject" value="Mail received from 'KARSON SPYKES tattoo studio' website!">
+				<input type="hidden" name="_next" value="https://koba-web-form-message.onrender.com">
+				<input placeholder="Name" type="text" name="name" autocomplete="off" required>
+				<br>
+				<input placeholder="Email" type="text" name="email" required autocomplete="off">
+				<br>
+				<textarea placeholder="Message" name="message" autocomplete="off" rows="6" required></textarea>
+				<br>
+				<input type="submit" value="SEND MESSAGE">
+			</form>
+		</section>
+	
+	
 	</body>
 </html>
+
+
+
+
+	<script is:inline defer>
+		
+		
+var prevScrollposY = window.scrollY;
+window.onscroll = function() {  
+  const nav = document.getElementsByTagName("nav")[0]
+  var scrollPosY = window.scrollY;
+  if(scrollPosY <= nav.style.top) {
+    return nav.style.top = 0;
+  }
+  if (prevScrollposY >= scrollPosY)
+    nav.style.top = 0;
+  else
+    nav.style.top = -nav.clientHeight + 'px';
+  prevScrollposY = scrollPosY;
+};
+
+
+// Recalculate 'transform' base on 'curGalleryPage'
+function updateGallerySliderPos() {
+  const items = Array.from(document.getElementsByClassName('gallery-item-wrapper'))
+  const galleryWrap = document.getElementsByClassName('gallery-wrapper')[0]
+  const itemWidth = parseInt(window.getComputedStyle(items[0]).width)
+  const padding = parseInt(window.getComputedStyle(document.getElementsByClassName('gallery-item-wrapper')[0]).padding)
+  const moveTo = (curGalleryPage - 1) * itemWidth * -1
+  galleryWrap.style.transform = `translateX(${moveTo}px)`
+}
+
+function getGalleryItemsDisplayNum() {
+  if(window.innerWidth < 600)
+    return 2
+  else
+    return 3
+}
+
+// first 3 visible images are with indexes 0, 1, 2. 'curGalleryPage' represent the one in the center.
+var curGalleryPage = 1
+function onGalleryPaginationClick(direction) {
+  const items = Array.from(document.getElementsByClassName('gallery-item'))
+  const leftSlideStopped = direction == 1 && curGalleryPage === 1
+  const rightSlideStopped = direction == -1 && curGalleryPage + (getGalleryItemsDisplayNum() - 1) >= items.length
+  if(leftSlideStopped || rightSlideStopped)
+  return
+  curGalleryPage += direction * -1
+  updateGallerySliderPos()
+}  
+
+
+
+document.getElementsByClassName('gallery-pagination-icon')[0].addEventListener('click', () => onGalleryPaginationClick(1));
+document.getElementsByClassName('gallery-pagination-icon')[1].addEventListener('click', () => onGalleryPaginationClick(-1));
+
+function adjustGallerySize() {
+  const container = document.getElementsByClassName('gallery-container')[0]  
+  const wrapper = document.getElementsByClassName('gallery-wrapper')[0]
+  const items = Array.from(document.getElementsByClassName('gallery-item-wrapper'))
+  const containerWidthPx = parseInt(window.getComputedStyle(container).width, 10)
+  const itemPadding = parseInt(window.getComputedStyle(document.getElementsByClassName('gallery-item-wrapper')[0]).padding)
+  wrapper.style.width = (containerWidthPx / getGalleryItemsDisplayNum()) * items.length + 'px'
+  const wrapperWidthPx = parseInt(window.getComputedStyle(wrapper).width, 10) 
+  items.forEach(item => {
+    item.style.width = wrapperWidthPx / items.length + 'px'
+  });
+}
+
+window.onresize = function() {
+  adjustGallerySize()
+  document.getElementsByClassName('gallery-wrapper')[0].style.transition = "none"
+  updateGallerySliderPos()
+  document.getElementsByClassName('gallery-wrapper')[0].style.transition = "transform 0.3s"
+}
+
+
+
+
+function isInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return rect.top < window.innerHeight && Math.abs(rect.top) < window.innerHeight
+}
+
+const parallaxImgs = document.getElementsByClassName('section-img')
+const parallaxSpeed = 0.25
+window.addEventListener('scroll', () => {
+  let { scrollY } = window;
+  [...parallaxImgs].forEach(img => {
+    if(isInViewport(img)) {
+      img.style.transform = `translateY(${img.getBoundingClientRect().top * Math.sign(scrollY) * parallaxSpeed - 50}px)`
+    }    
+  });
+});
+
+
+/*
+ * Animations
+ */
+const observer = new IntersectionObserver((elements) => {
+  elements.forEach(el => {
+    if(el.isIntersecting)
+      el.target.classList.add('show')
+  });
+})
+
+const animatedElements = [
+  ...document.querySelectorAll(".hide-top"),
+  ...document.querySelectorAll(".hide-left"),
+  ...document.querySelectorAll(".hide-right"),
+  ...document.querySelectorAll(".hide-opacity")
+];
+animatedElements
+animatedElements.forEach(el => observer.observe(el));
+
+/*
+ * Call on init
+ */
+adjustGallerySize()
+
+setTimeout(() => {
+  // Remove gallery resize transition that breaks on window resize after transition is initialy shown
+  const elements = document.querySelectorAll(".gallery-item-wrapper");
+  elements.forEach(el => {
+    el.classList.remove("hide-right", "show")
+  });
+}, 1500);
+
+	</script>
