@@ -8,16 +8,13 @@
 </nav>
 
 
-<script type="text/javascript">    
+<script type="text/javascript">
 	var prevScrollposY = window.scrollY;
 	window.addEventListener(
 	'scroll', 
 	() => {
 			const nav = document.querySelector("nav")
-			var scrollPosY = window.scrollY;
-			if(scrollPosY <= nav.style.top) {
-				return nav.style.top = 0;
-			}
+			const scrollPosY = window.scrollY;
 			if (prevScrollposY >= scrollPosY)
 				nav.style.top = 0;
 			else

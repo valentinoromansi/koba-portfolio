@@ -3,11 +3,11 @@ function isInViewport(el) {
   return rect.top < window.innerHeight && Math.abs(rect.top) < window.innerHeight
 }
 
-const parallaxImgs = document.querySelector('.section-img')
+const parallaxImgs = Array.from(document.querySelectorAll('.section-img'))
 const parallaxSpeed = 0.25
 window.addEventListener('scroll', () => {
   let { scrollY } = window;
-  [...parallaxImgs].forEach(img => {
+  parallaxImgs.forEach(img => {
     if(isInViewport(img)) {
       img.style.transform = `translateY(${img.getBoundingClientRect().top * Math.sign(scrollY) * parallaxSpeed - 50}px)`
     }    
