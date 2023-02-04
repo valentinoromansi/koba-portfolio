@@ -10,28 +10,28 @@
 	<div class="gallery-container">
 		 <div class="gallery-wrapper">
 				<div class="gallery-item-wrapper hide-right">
-					 <div class="gallery-item" style="background-image: url('img/gallery/2.jpg');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/2.jpg')"></div>
 				</div>
 				<div class="gallery-item-wrapper hide-right">
-					 <div class="gallery-item" style="background-image: url('img/gallery/3.jpg');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/3.jpg')"></div>
 				</div>
 				<div class="gallery-item-wrapper hide-right">
-					 <div class="gallery-item" style="background-image: url('img/gallery/4.jpg');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/4.jpg')"></div>
 				</div>
 				<div class="gallery-item-wrapper">
-					 <div class="gallery-item" style="background-image: url('img/gallery/5.png');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/5.png')"></div>
 				</div>
 				<div class="gallery-item-wrapper">
-					 <div class="gallery-item" style="background-image: url('img/gallery/2.jpg');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/2.jpg')"></div>
 				</div>
 				<div class="gallery-item-wrapper">
-					 <div class="gallery-item" style="background-image: url('img/gallery/3.jpg');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/3.jpg')"></div>
 				</div>
 				<div class="gallery-item-wrapper">
-					 <div class="gallery-item" style="background-image: url('img/gallery/4.jpg');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/4.jpg')"></div>
 				</div>
 				<div class="gallery-item-wrapper">
-					 <div class="gallery-item" style="background-image: url('img/gallery/5.png');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/5.png')"></div>
 				</div>
 		 </div>
 	</div>
@@ -68,14 +68,14 @@
 	
 	
 	
-	document.querySelector('.gallery-pagination-icon-left').addEventListener('click', () => onGalleryPaginationClick(1));
-	document.querySelector('.gallery-pagination-icon-right').addEventListener('click', () => onGalleryPaginationClick(-1));
+	document.querySelector('.gallery-pagination-icon-left').addEventListener('click', () => onGalleryPaginationClick(1))
+	document.querySelector('.gallery-pagination-icon-right').addEventListener('click', () => onGalleryPaginationClick(-1))
 	
 	function adjustGallerySize() {
 		const containerW = parseInt(window.getComputedStyle(document.querySelector('.gallery-container')).width, 10)
 		galleryWrapper.style.width = (containerW / getGalleryItemsDisplayNum()) * itemWrappers.length + 'px'
 		const wrapperW = parseInt(window.getComputedStyle(galleryWrapper).width, 10) 
-		itemWrappers.forEach(el => el.style.width = wrapperW / itemWrappers.length + 'px');
+		itemWrappers.forEach(el => el.style.width = wrapperW / itemWrappers.length + 'px')
 	}
 	
 	window.addEventListener('resize', () => {
@@ -90,7 +90,7 @@
 	setTimeout(() => {
 		const wrappers = document.querySelectorAll(".gallery-item-wrapper")
 		wrappers.forEach(el => el.classList.remove("hide-right", "show"))
-	}, 1500);
+	}, 1500)
 	
 	// Call on load
 	adjustGallerySize()

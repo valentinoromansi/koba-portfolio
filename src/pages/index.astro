@@ -1,9 +1,9 @@
 ---
-import Navigation from "../components/navigation.astro";
-import HeaderLogos from "../components/header-logos.astro";
-import HeaderGallery from "../components/header-gallery.astro";
-import Sections from "../components/sections.astro";
-import Contact from "../components/contact.astro";
+import Navigation from "../components/navigation.astro"
+import HeaderLogos from "../components/header-logos.astro"
+import HeaderGallery from "../components/header-gallery.astro"
+import Sections from "../components/sections.astro"
+import Contact from "../components/contact.astro"
 ---
 
 
@@ -34,20 +34,20 @@ import Contact from "../components/contact.astro";
 	
 <script type="text/javascript">
 	function isInViewport(el) {
-	  const rect = el.getBoundingClientRect();
+	  const rect = el.getBoundingClientRect()
 	  return rect.top < window.innerHeight && Math.abs(rect.top) < window.innerHeight
 	}
 
 	const parallaxImgs = Array.from(document.querySelectorAll('.section-img'))
 	const parallaxSpeed = 0.25
 	window.addEventListener('scroll', () => {
-	  let { scrollY } = window;
+	  let { scrollY } = window
 	  parallaxImgs.forEach(img => {
 	    if(isInViewport(img)) {
 	      img.style.transform = `translateY(${img.getBoundingClientRect().top * Math.sign(scrollY) * parallaxSpeed - 50}px)`
 	    }    
-	  });
-	});
+	  })
+	})
 
 	/*
 	 * Animations
@@ -56,7 +56,7 @@ import Contact from "../components/contact.astro";
 	  elements.forEach(el => {
 	    if(el.isIntersecting)
 	      el.target.classList.add('show')
-	  });
+	  })
 	})
 
 	const animatedElements = [
@@ -64,6 +64,6 @@ import Contact from "../components/contact.astro";
 	  ...document.querySelectorAll(".hide-left"),
 	  ...document.querySelectorAll(".hide-right"),
 	  ...document.querySelectorAll(".hide-opacity")
-	];
-	animatedElements.forEach(el => observer.observe(el));
+	]
+	animatedElements.forEach(el => observer.observe(el))
 </script>

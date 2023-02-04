@@ -9,17 +9,17 @@
 
 
 <script type="text/javascript">
-	var prevScrollposY = window.scrollY;
+	var prevScrollposY = window.scrollY
 	window.addEventListener(
 	'scroll', 
 	() => {
 			const nav = document.querySelector("nav")
-			const scrollPosY = window.scrollY;
+			const scrollPosY = window.scrollY
 			if (prevScrollposY >= scrollPosY)
-				nav.style.top = 0;
+				nav.style.top = 0
 			else
-				nav.style.top = -nav.clientHeight + 'px';
-			prevScrollposY = scrollPosY;
+				nav.style.top = -nav.clientHeight + 'px'
+			prevScrollposY = scrollPosY
 		}
 	)
 </script>
