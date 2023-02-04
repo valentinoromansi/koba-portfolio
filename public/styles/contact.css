@@ -1,0 +1,118 @@
+.contact-title-wrapper {
+  width: min(100%, 500px);
+}
+
+.contact-title {
+  align-self: center;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #00FFCC;
+  margin: 0;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.contact-form {
+  width: min(100%, 500px);
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+}
+
+.contact-form > input {
+  font-family: "Montserrat", Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #9e9f94;  
+  border: none;
+  background: #141414;
+  outline: none;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.contact-form > input::placeholder {
+  color: #4a4a48;
+  background: #141414;
+}
+
+.contact-form > input[type=submit] {
+  max-width: 150px;
+  padding: 12px;
+  background:#00FFCC; 
+  border: 1px solid #00FFCC;
+  background: none;
+  cursor:pointer;
+  -webkit-border-radius: 6px;
+  border-radius: 5px;
+  color: #00FFCC;
+}
+
+.contact-form > textarea {
+  resize: vertical;
+  font-family: "Montserrat", Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #9e9f94;  
+  border: none;
+  background: #141414;
+  outline: none;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.contact-form > textarea::placeholder {
+  color: #4a4a48;
+  border: none;
+  background: #141414;
+}
+
+
+/* Material icons */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url("material-icons.woff2") format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* social media */
+.social-media-container {
+  width: min(100%, 500px);
+  gap: 18px;
+  padding: 16px;
+}
+
+.social-media-a {
+  text-decoration: none;
+  padding: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20%;
+  font-size: 3.5rem;
+}
+.fa-instagram {
+  color: white;
+  background: linear-gradient(45deg, rgba(246,208,123,1) 0%, rgba(216,58,117,1) 52%, rgba(126,70,195,1) 100%);
+}
+.fa-tiktok {
+  color: black;
+  background: white;
+}
