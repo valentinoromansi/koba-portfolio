@@ -44,47 +44,6 @@ body::-webkit-scrollbar {
   box-sizing: border-box;
 }
 
-.nav {
-  font-family: monospace;
-  position: fixed;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 1px 1px 2px black;
-  box-shadow: 0px 0px 6px #00000038;
-  top: 0px;
-  transition: top 0.1s;
-  background: rgba(200, 200, 200, 0.25);
-  z-index: 1;
-}
-
-.nav > ul {
-  top: 0px;
-  padding: 0;
-  width: min(100vw, 800px);
-  display: flex;
-  flex-flow: row;
-  margin: 0px;
-  align-self: center;
-  justify-content: right;
-}
-
-.nav > ul > a {
-  color: aliceblue;
-  text-shadow: 1px 1px 5px rgb(194, 111, 194);
-  padding: 16px 22px;
-  user-select: none;
-  text-decoration: none;
-  transition: text-shadow 0.1s;
-}
-.nav > ul > a:hover {
-  text-shadow: 1px 1px 15px rgb(255, 201, 255);
-  cursor: pointer;
-  transition: text-shadow 0.1s;
-}
-
-
 
 header {
   width: 100%;
@@ -488,7 +447,6 @@ section {
 }
 
 
-
 @media (max-width: 600px) {
   .header-item-text-container {
     width: 40%;
@@ -511,13 +469,6 @@ section {
   .gallery-pagination-icon-symbol:hover {
     font-size: 5.5rem !important;
     transition: font-size 0.2s;
-  }
-  .nav > ul {
-    justify-content: center;
-    box-shadow: 0px 0px 6px #5e5e5e;
-  }
-  .nav > ul > a {
-    padding: 16px 12px;
   }
   .section-text-wrapper {
     width: 100%;
