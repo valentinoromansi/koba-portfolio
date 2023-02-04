@@ -10,28 +10,28 @@
 	<div class="gallery-container">
 		 <div class="gallery-wrapper">
 				<div class="gallery-item-wrapper hide-right">
-					 <div class="gallery-item" style="background-image: url('img/2.jpg');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/2.jpg')"></div>
 				</div>
 				<div class="gallery-item-wrapper hide-right">
-					 <div class="gallery-item" style="background-image: url('img/3.jpg');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/3.jpg')"></div>
 				</div>
 				<div class="gallery-item-wrapper hide-right">
-					 <div class="gallery-item" style="background-image: url('img/4.jpg');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/4.jpg')"></div>
 				</div>
 				<div class="gallery-item-wrapper">
-					 <div class="gallery-item" style="background-image: url('img/5.png');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/5.png')"></div>
 				</div>
 				<div class="gallery-item-wrapper">
-					 <div class="gallery-item" style="background-image: url('img/2.jpg');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/2.jpg')"></div>
 				</div>
 				<div class="gallery-item-wrapper">
-					 <div class="gallery-item" style="background-image: url('img/3.jpg');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/3.jpg')"></div>
 				</div>
 				<div class="gallery-item-wrapper">
-					 <div class="gallery-item" style="background-image: url('img/4.jpg');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/4.jpg')"></div>
 				</div>
 				<div class="gallery-item-wrapper">
-					 <div class="gallery-item" style="background-image: url('img/5.png');"></div>
+					 <div class="gallery-item" style="background-image: url('img/gallery/5.png')"></div>
 				</div>
 		 </div>
 	</div>
@@ -39,71 +39,60 @@
 
 
 <script type="text/javascript">
+	const galleryWrapper = document.querySelector('.gallery-wrapper')
+	const itemWrappers = document.querySelectorAll('.gallery-item-wrapper')
+	const items = Array.from(document.querySelectorAll('.gallery-item'))
+
 	// Recalculate 'transform' base on 'curGalleryPage'
 	function updateGallerySliderPos() {
-	const items = Array.from(document.getElementsByClassName('gallery-item-wrapper'))
-	const galleryWrap = document.getElementsByClassName('gallery-wrapper')[0]
-	const itemWidth = parseInt(window.getComputedStyle(items[0]).width)
-	const padding = parseInt(window.getComputedStyle(document.getElementsByClassName('gallery-item-wrapper')[0]).padding)
-	const moveTo = (curGalleryPage - 1) * itemWidth * -1
-	galleryWrap.style.transform = `translateX(${moveTo}px)`
+		const width = parseInt(window.getComputedStyle(itemWrappers[0]).width)
+		const padding = parseInt(window.getComputedStyle(document.querySelector('.gallery-item-wrapper')).padding)
+		const moveTo = (curGalleryPage - 1) * -width
+		galleryWrapper.style.transform = `translateX(${moveTo}px)`
 	}
 	
 	function getGalleryItemsDisplayNum() {
-	if(window.innerWidth < 600)
-	return 2
-	else
-	return 3
+		return window.innerWidth < 600 ? 2 : 3
 	}
 	
 	// first 3 visible images are with indexes 0, 1, 2. 'curGalleryPage' represent the one in the center.
 	var curGalleryPage = 1
 	function onGalleryPaginationClick(direction) {
-	const items = Array.from(document.getElementsByClassName('gallery-item'))
-	const leftSlideStopped = direction == 1 && curGalleryPage === 1
-	const rightSlideStopped = direction == -1 && curGalleryPage + (getGalleryItemsDisplayNum() - 1) >= items.length
-	if(leftSlideStopped || rightSlideStopped)
-	return
-	curGalleryPage += direction * -1
-	updateGallerySliderPos()
+		const leftSlideStopped = direction == 1 && curGalleryPage === 1
+		const rightSlideStopped = direction == -1 && curGalleryPage + (getGalleryItemsDisplayNum() - 1) >= items.length
+		if(leftSlideStopped || rightSlideStopped)
+			return
+		curGalleryPage += -direction
+		updateGallerySliderPos()
 	}  
 	
 	
 	
-	document.getElementsByClassName('gallery-pagination-icon')[0].addEventListener('click', () => onGalleryPaginationClick(1));
-	document.getElementsByClassName('gallery-pagination-icon')[1].addEventListener('click', () => onGalleryPaginationClick(-1));
+	document.querySelector('.gallery-pagination-icon-left').addEventListener('click', () => onGalleryPaginationClick(1))
+	document.querySelector('.gallery-pagination-icon-right').addEventListener('click', () => onGalleryPaginationClick(-1))
 	
 	function adjustGallerySize() {
-	const container = document.getElementsByClassName('gallery-container')[0]  
-	const wrapper = document.getElementsByClassName('gallery-wrapper')[0]
-	const items = Array.from(document.getElementsByClassName('gallery-item-wrapper'))
-	const containerWidthPx = parseInt(window.getComputedStyle(container).width, 10)
-	const itemPadding = parseInt(window.getComputedStyle(document.getElementsByClassName('gallery-item-wrapper')[0]).padding)
-	wrapper.style.width = (containerWidthPx / getGalleryItemsDisplayNum()) * items.length + 'px'
-	const wrapperWidthPx = parseInt(window.getComputedStyle(wrapper).width, 10) 
-	items.forEach(item => {
-	item.style.width = wrapperWidthPx / items.length + 'px'
-	});
+		const containerW = parseInt(window.getComputedStyle(document.querySelector('.gallery-container')).width, 10)
+		galleryWrapper.style.width = (containerW / getGalleryItemsDisplayNum()) * itemWrappers.length + 'px'
+		const wrapperW = parseInt(window.getComputedStyle(galleryWrapper).width, 10) 
+		itemWrappers.forEach(el => el.style.width = wrapperW / itemWrappers.length + 'px')
 	}
 	
-	window.onresize = function() {
-	adjustGallerySize()
-	document.getElementsByClassName('gallery-wrapper')[0].style.transition = "none"
-	updateGallerySliderPos()
-	document.getElementsByClassName('gallery-wrapper')[0].style.transition = "transform 0.3s"
-	}
+	window.addEventListener('resize', () => {
+		adjustGallerySize()
+		galleryWrapper.style.transition = "none"
+		updateGallerySliderPos()
+		galleryWrapper.style.transition = "transform 0.3s"
+	})
 	
-	/*
-	* Call on init
-	*/
-	adjustGallerySize()
 	
-	// Remove gallery resize transition that breaks on window resize after transition is initialy shown
+	// Remove gallery resize transition on first 3 items after transition is initialy shown because it breaks component on window resize
 	setTimeout(() => {
-	const elements = document.querySelectorAll(".gallery-item-wrapper");
-	elements.forEach(el => {
-	el.classList.remove("hide-right", "show")
-	});
-	}, 1500);
+		const wrappers = document.querySelectorAll(".gallery-item-wrapper")
+		wrappers.forEach(el => el.classList.remove("hide-right", "show"))
+	}, 1500)
+	
+	// Call on load
+	adjustGallerySize()
 	
 </script>

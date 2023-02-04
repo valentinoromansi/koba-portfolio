@@ -1,9 +1,9 @@
 ---
-import Navigation from "../components/navigation.astro";
-import HeaderLogos from "../components/header-logos.astro";
-import HeaderGallery from "../components/header-gallery.astro";
-import Sections from "../components/sections.astro";
-import Contact from "../components/contact.astro";
+import Navigation from "../components/navigation.astro"
+import HeaderLogos from "../components/header-logos.astro"
+import HeaderGallery from "../components/header-gallery.astro"
+import Sections from "../components/sections.astro"
+import Contact from "../components/contact.astro"
 ---
 
 
@@ -12,22 +12,54 @@ import Contact from "../components/contact.astro";
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-		<link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="styles/shared.css">
+		<link rel="stylesheet" href="styles/sections.css">
+		<link rel="stylesheet" href="styles/navigation.css">
+		<link rel="stylesheet" href="styles/header.css">
+		<link rel="stylesheet" href="styles/gallery.css">
+		<link rel="stylesheet" href="styles/contact.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+		<script type="text/javascript">
+			var prevScrollposY = window.scrollY
+		</script>
 		<title>KARSON SPYKES tattoo studio</title>
 	</head>
 	<body>
-		<Navigation/>	
+		<Navigation/>
 		<header>
 			<HeaderLogos/>
 			<HeaderGallery/>
 		</header>
 		<Sections/>
-		<Contact/>	
+		<Contact/>
 	</body>
 	</html>
 	
 	
-	<script type="text/javascript" src="root-script.js"></script>
+	
+	
+<script type="text/javascript">
+	window.addEventListener(
+	'scroll', 
+	() => {
+			prevScrollposY = window.scrollY
+		}
+	)
+	/*
+	 * Animations
+	 */
+	const observer = new IntersectionObserver((elements) => {
+	  elements.forEach(el => {
+	    if(el.isIntersecting)
+	      el.target.classList.add('show')
+	  })
+	})
+
+	const animatedElements = [
+	  ...document.querySelectorAll(".hide-top"),
+	  ...document.querySelectorAll(".hide-left"),
+	  ...document.querySelectorAll(".hide-right"),
+	  ...document.querySelectorAll(".hide-opacity")
+	]
+	animatedElements.forEach(el => observer.observe(el))
+</script>

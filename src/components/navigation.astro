@@ -8,21 +8,16 @@
 </nav>
 
 
-<script type="text/javascript">    
-	var prevScrollposY = window.scrollY;
+<script type="text/javascript">
 	window.addEventListener(
 	'scroll', 
 	() => {
-			const nav = document.getElementsByTagName("nav")[0]
-			var scrollPosY = window.scrollY;
-			if(scrollPosY <= nav.style.top) {
-				return nav.style.top = 0;
-			}
+			const nav = document.querySelector("nav")
+			const scrollPosY = window.scrollY
 			if (prevScrollposY >= scrollPosY)
-				nav.style.top = 0;
+				nav.style.top = 0
 			else
-				nav.style.top = -nav.clientHeight + 'px';
-			prevScrollposY = scrollPosY;
+				nav.style.top = -nav.clientHeight + 'px'
 		}
 	)
 </script>
