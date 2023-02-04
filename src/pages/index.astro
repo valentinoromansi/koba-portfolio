@@ -19,6 +19,9 @@ import Contact from "../components/contact.astro"
 		<link rel="stylesheet" href="styles/gallery.css">
 		<link rel="stylesheet" href="styles/contact.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+		<script type="text/javascript">
+			var prevScrollposY = window.scrollY
+		</script>
 		<title>KARSON SPYKES tattoo studio</title>
 	</head>
 	<body>
@@ -36,22 +39,12 @@ import Contact from "../components/contact.astro"
 	
 	
 <script type="text/javascript">
-	function isInViewport(el) {
-	  const rect = el.getBoundingClientRect()
-	  return rect.top < window.innerHeight && Math.abs(rect.top) < window.innerHeight
-	}
-
-	const parallaxImgs = Array.from(document.querySelectorAll('.section-img'))
-	const parallaxSpeed = 0.25
-	window.addEventListener('scroll', () => {
-	  let { scrollY } = window
-	  parallaxImgs.forEach(img => {
-	    if(isInViewport(img)) {
-	      img.style.transform = `translateY(${img.getBoundingClientRect().top * Math.sign(scrollY) * parallaxSpeed - 50}px)`
-	    }    
-	  })
-	})
-
+	window.addEventListener(
+	'scroll', 
+	() => {
+			prevScrollposY = window.scrollY
+		}
+	)
 	/*
 	 * Animations
 	 */

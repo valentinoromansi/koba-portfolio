@@ -26,7 +26,8 @@ section {
 }
 
 .section-img {
-  top: -250px;
+  position: relative;
+  top: 0px;
 }
 
 /* style section */
