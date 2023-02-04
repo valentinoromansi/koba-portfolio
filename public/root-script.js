@@ -3,7 +3,7 @@ function isInViewport(el) {
   return rect.top < window.innerHeight && Math.abs(rect.top) < window.innerHeight
 }
 
-const parallaxImgs = document.getElementsByClassName('section-img')
+const parallaxImgs = document.querySelector('.section-img')
 const parallaxSpeed = 0.25
 window.addEventListener('scroll', () => {
   let { scrollY } = window;

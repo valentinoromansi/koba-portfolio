@@ -13,7 +13,7 @@
 	window.addEventListener(
 	'scroll', 
 	() => {
-			const nav = document.getElementsByTagName("nav")[0]
+			const nav = document.querySelector("nav")
 			var scrollPosY = window.scrollY;
 			if(scrollPosY <= nav.style.top) {
 				return nav.style.top = 0;

@@ -41,10 +41,10 @@
 <script type="text/javascript">
 	// Recalculate 'transform' base on 'curGalleryPage'
 	function updateGallerySliderPos() {
-	const items = Array.from(document.getElementsByClassName('gallery-item-wrapper'))
-	const galleryWrap = document.getElementsByClassName('gallery-wrapper')[0]
+	const items = Array.from(document.querySelectorAll('.gallery-item-wrapper'))
+	const galleryWrap = document.querySelectorAll('.gallery-wrapper')[0]
 	const itemWidth = parseInt(window.getComputedStyle(items[0]).width)
-	const padding = parseInt(window.getComputedStyle(document.getElementsByClassName('gallery-item-wrapper')[0]).padding)
+	const padding = parseInt(window.getComputedStyle(document.querySelectorAll('.gallery-item-wrapper')[0]).padding)
 	const moveTo = (curGalleryPage - 1) * itemWidth * -1
 	galleryWrap.style.transform = `translateX(${moveTo}px)`
 	}
@@ -59,7 +59,7 @@
 	// first 3 visible images are with indexes 0, 1, 2. 'curGalleryPage' represent the one in the center.
 	var curGalleryPage = 1
 	function onGalleryPaginationClick(direction) {
-	const items = Array.from(document.getElementsByClassName('gallery-item'))
+	const items = Array.from(document.querySelectorAll('.gallery-item'))
 	const leftSlideStopped = direction == 1 && curGalleryPage === 1
 	const rightSlideStopped = direction == -1 && curGalleryPage + (getGalleryItemsDisplayNum() - 1) >= items.length
 	if(leftSlideStopped || rightSlideStopped)
@@ -70,15 +70,15 @@
 	
 	
 	
-	document.getElementsByClassName('gallery-pagination-icon')[0].addEventListener('click', () => onGalleryPaginationClick(1));
-	document.getElementsByClassName('gallery-pagination-icon')[1].addEventListener('click', () => onGalleryPaginationClick(-1));
+	document.querySelectorAll('.gallery-pagination-icon')[0].addEventListener('click', () => onGalleryPaginationClick(1));
+	document.querySelectorAll('.gallery-pagination-icon')[1].addEventListener('click', () => onGalleryPaginationClick(-1));
 	
 	function adjustGallerySize() {
-	const container = document.getElementsByClassName('gallery-container')[0]  
-	const wrapper = document.getElementsByClassName('gallery-wrapper')[0]
-	const items = Array.from(document.getElementsByClassName('gallery-item-wrapper'))
+	const container = document.querySelectorAll('.gallery-container')[0]  
+	const wrapper = document.querySelectorAll('.gallery-wrapper')[0]
+	const items = Array.from(document.querySelectorAll('.gallery-item-wrapper'))
 	const containerWidthPx = parseInt(window.getComputedStyle(container).width, 10)
-	const itemPadding = parseInt(window.getComputedStyle(document.getElementsByClassName('gallery-item-wrapper')[0]).padding)
+	const itemPadding = parseInt(window.getComputedStyle(document.querySelectorAll('.gallery-item-wrapper')[0]).padding)
 	wrapper.style.width = (containerWidthPx / getGalleryItemsDisplayNum()) * items.length + 'px'
 	const wrapperWidthPx = parseInt(window.getComputedStyle(wrapper).width, 10) 
 	items.forEach(item => {
@@ -86,12 +86,12 @@
 	});
 	}
 	
-	window.onresize = function() {
-	adjustGallerySize()
-	document.getElementsByClassName('gallery-wrapper')[0].style.transition = "none"
-	updateGallerySliderPos()
-	document.getElementsByClassName('gallery-wrapper')[0].style.transition = "transform 0.3s"
-	}
+	window.addEventListener('resize', () => {
+		adjustGallerySize()
+		document.querySelectorAll('.gallery-wrapper')[0].style.transition = "none"
+		updateGallerySliderPos()
+		document.querySelectorAll('.gallery-wrapper')[0].style.transition = "transform 0.3s"
+	})
 	
 	/*
 	* Call on init
