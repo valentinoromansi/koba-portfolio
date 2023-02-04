@@ -45,21 +45,25 @@
 
 	// Recalculate 'transform' base on 'curGalleryPage'
 	function updateGallerySliderPos() {
+		// Rest when number of displayed items change
+		if(getGalleryItemsDisplayNum(window.innerWidth) !== getGalleryItemsDisplayNum(prevWindowW))
+			curGalleryPage = 1
+		// Recalculate slider position
 		const width = parseInt(window.getComputedStyle(itemWrappers[0]).width)
 		const padding = parseInt(window.getComputedStyle(document.querySelector('.gallery-item-wrapper')).padding)
 		const moveTo = (curGalleryPage - 1) * -width
 		galleryWrapper.style.transform = `translateX(${moveTo}px)`
 	}
 	
-	function getGalleryItemsDisplayNum() {
-		return window.innerWidth < 600 ? 2 : 3
+	function getGalleryItemsDisplayNum(windowWidth) {
+		return windowWidth < 600 ? 2 : 3
 	}
 	
 	// first 3 visible images are with indexes 0, 1, 2. 'curGalleryPage' represent the one in the center.
 	var curGalleryPage = 1
 	function onGalleryPaginationClick(direction) {
 		const leftSlideStopped = direction == 1 && curGalleryPage === 1
-		const rightSlideStopped = direction == -1 && curGalleryPage + (getGalleryItemsDisplayNum() - 1) >= items.length
+		const rightSlideStopped = direction == -1 && curGalleryPage + (getGalleryItemsDisplayNum(window.innerWidth) - 1) >= items.length
 		if(leftSlideStopped || rightSlideStopped)
 			return
 		curGalleryPage += -direction
@@ -73,7 +77,7 @@
 	
 	function adjustGallerySize() {
 		const containerW = parseInt(window.getComputedStyle(document.querySelector('.gallery-container')).width, 10)
-		galleryWrapper.style.width = (containerW / getGalleryItemsDisplayNum()) * itemWrappers.length + 'px'
+		galleryWrapper.style.width = (containerW / getGalleryItemsDisplayNum(window.innerWidth)) * itemWrappers.length + 'px'
 		const wrapperW = parseInt(window.getComputedStyle(galleryWrapper).width, 10) 
 		itemWrappers.forEach(el => el.style.width = wrapperW / itemWrappers.length + 'px')
 	}
